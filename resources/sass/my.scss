@@ -1,0 +1,44 @@
+.navbar-vertical{
+    padding-top: 120px;
+}
+
+.navbar-expand-md {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
+
+.navbar-vertical.navbar-expand-md.fixed-left {
+    left: 0;
+    border-width: 0 1px 0 0;
+}
+
+.navbar-vertical.navbar-expand-md {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 250px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    overflow-y: auto;
+}
+
+.main-content{
+    margin-left: 250px;
+}
+
+.navbar-vertical.navbar-expand-md .navbar-nav .nav-link {
+    padding: 0.65rem 1.5rem;
+}
+
+.navbar-vertical .navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-vertical.navbar-expand-md .navbar-nav {
+    flex-direction: column;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+}
