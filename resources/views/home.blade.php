@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.flow-layout')
 
 @section('content')
 
@@ -10,7 +10,7 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="span4">
+                            {{--<div class="span4">
                                 <ol class="serialization vertical" id="serialization">
                                     <li data-id="0" data-name="Text" class="handle">
                                         <div>
@@ -48,9 +48,16 @@
                                         </div>
                                     </li>
                                 </ol>
-                            </div>
+                            </div>--}}
 
                             <div class="span4">
+                               {{-- <div id="flowGrid" class="serialization col">
+                                    <div data-id="0" data-name="Text" class="grid-square handle">
+                                        <i class="ni ni-align-left-2"></i>
+                                        <span>Text</span>
+                                    </div>
+                                </div>--}}
+
                                 <ol class="serialization vertical" id="serialization1">
                                     <li data-id="0" data-name="Item 1">
                                         <i class="ni ni-ui-04"></i>

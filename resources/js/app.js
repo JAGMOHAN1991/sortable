@@ -6,8 +6,6 @@ require('argon-design-system-free/assets/vendor/bootstrap-datepicker/js/bootstra
 import Sortable, { MultiDrag, Swap } from 'sortablejs';
 
 window.sortable = Sortable;
-// window.sortable = require('sortablejs')
-
 require('./my')
 
 window.notify = (text, type, timeout, layout = 'topCenter', theme = 'sunset') => {

@@ -14,30 +14,30 @@ var group = $("ol.serialization").sortable({
 });*/
 
 // console.log($('.serialization'));
-sortable.create(serialization,
-{group:
-			{
-				name: 'serialization',
+sortable.create(elementsGrid,
+{
+    group:{
+				name: 'elements-grid',
 				pull: 'clone', // To clone: set pull to 'clone'
 				handle: '.handle'
 			}
 		}
 );
 sortable.create(
-	serialization1,
+    serialization1,
 {
 			group: {
 				name: 'serialization1',
-				put: ['serialization']
+				put: ['elements-grid']
 			},
 			onAdd: function (/**Event*/evt) {
-				evt.target.innerHTML = evt.clone.innerHTML + 'hiiii';
+				// evt.target.innerHTML = evt.clone.innerHTML + 'hiiii';
 				console.log(evt.clone.innerHTML);
 				console.log(evt);
 			},
-			setData: function (dataTransfer, dragEl) {
+			/*setData: function (dataTransfer, dragEl) {
 				console.log('evt');
 				dataTransfer.setData('Text', dragEl.textContent);
-			}
+			}*/
 		}
 );

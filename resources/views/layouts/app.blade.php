@@ -68,7 +68,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @component('components.elements')@endcomponent
                     </ul>
 
                     <!-- Right Side Of Navbar -->
