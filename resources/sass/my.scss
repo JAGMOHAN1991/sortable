@@ -42,3 +42,23 @@
     margin-left: -1.5rem;
     margin-right: -1.5rem;
 }
+
+
+.span4 {
+    width: 450px;
+    border: solid;
+    height: 400px;
+}
+[class*="span"] {
+    float: left;
+    margin-left: 20px;
+}
+
+ol.vertical li {
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #cccccc;
+    color: #0088cc;
+    background: #eeeeee;
+}

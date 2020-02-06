@@ -1,36 +1,43 @@
-var adjustment;
+/*
+var group = $("ol.serialization").sortable({
+   group: 'serialization',
+   delay: 500,
+   onDrop: function ($item, container, _super) {
+       var data = group.sortable("serialize").get();
 
-$("ol.simple_with_animation").sortable({
-       group: 'simple_with_animation',
-       pullPlaceholder: false,
-       // animation on drop
-       onDrop: function($item, container, _super) {
-           var $clonedItem = $('<li/>').css({height: 0});
-           $item.before($clonedItem);
-           $clonedItem.animate({'height': $item.height()});
+       var jsonString = JSON.stringify(data, null, ' ');
 
-           $item.animate($clonedItem.position(), function() {
-               $clonedItem.detach();
-               _super($item, container);
-           });
-       },
+       console.log(jsonString);
+       // $('#serialize_output2').text(jsonString);
+       _super($item, container);
+   }
+});*/
 
-       // set $item relative to cursor position
-       onDragStart: function($item, container, _super) {
-           var offset = $item.offset(),
-               pointer = container.rootGroup.pointer;
-
-           adjustment = {
-               left: pointer.left - offset.left,
-               top: pointer.top - offset.top
-           };
-
-           _super($item, container);
-       },
-       onDrag: function($item, position) {
-           $item.css({
-                         left: position.left - adjustment.left,
-                         top: position.top - adjustment.top
-                     });
-       }
-   });
+// console.log($('.serialization'));
+sortable.create(serialization,
+{group:
+			{
+				name: 'serialization',
+				pull: 'clone', // To clone: set pull to 'clone'
+				handle: '.handle'
+			}
+		}
+);
+sortable.create(
+	serialization1,
+{
+			group: {
+				name: 'serialization1',
+				put: ['serialization']
+			},
+			onAdd: function (/**Event*/evt) {
+				evt.target.innerHTML = evt.clone.innerHTML + 'hiiii';
+				console.log(evt.clone.innerHTML);
+				console.log(evt);
+			},
+			setData: function (dataTransfer, dragEl) {
+				console.log('evt');
+				dataTransfer.setData('Text', dragEl.textContent);
+			}
+		}
+);

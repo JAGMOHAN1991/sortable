@@ -11,23 +11,51 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="span4">
-                                <ol class="simple_with_animation vertical">
-                                    <li>Item 1</li>
-                                    <li>Item 2</li>
-                                    <li>Item 3</li>
-                                    <li>Item 4</li>
-                                    <li>Item 5</li>
-                                    <li>Item 6</li>
+                                <ol class="serialization vertical" id="serialization">
+                                    <li data-id="0" data-name="Text" class="handle">
+                                        <div>
+                                            <i class="ni ni-align-left-2"></i>
+                                            <span>Text</span>
+                                            <div class="add-element"></div>
+                                        </div>
+                                    </li>
+                                    <li data-id="1" data-name="Image" class="handle">
+                                        <div>
+                                            <i class="ni ni-image"></i>
+                                            <span>Image</span>
+                                            <div class="add-element"></div>
+                                        </div>
+                                    </li>
+                                    <li data-id="1" data-name="Gallery" class="handle">
+                                        <div>
+                                            <i class="ni ni-album-2"></i>
+                                            <span>Gallery</span>
+                                            <div class="add-element"></div>
+                                        </div>
+                                    </li>
+                                    <li data-id="4" data-name="Button" class="handle">
+                                        <div>
+                                            <i class="ni ni-ui-04"></i>
+                                            <span>Button</span>
+                                            <div class="add-element"></div>
+                                        </div>
+                                    </li>
+                                    <li data-id="4" data-name="Login" class="handle">
+                                        <div>
+                                            <i class="ni ni-circle-08"></i>
+                                            <span>Login</span>
+                                            <div class="add-element"></div>
+                                        </div>
+                                    </li>
                                 </ol>
                             </div>
+
                             <div class="span4">
-                                <ol class="simple_with_animation vertical">
-                                    <li class="highlight">Item 1</li>
-                                    <li class="highlight">Item 2</li>
-                                    <li class="highlight">Item 3</li>
-                                    <li class="highlight">Item 4</li>
-                                    <li class="highlight">Item 5</li>
-                                    <li class="highlight">Item 6</li>
+                                <ol class="serialization vertical" id="serialization1">
+                                    <li data-id="0" data-name="Item 1">
+                                        <i class="ni ni-ui-04"></i>
+                                        <span>Button</span>
+                                    </li>
                                 </ol>
                             </div>
                         </div>
@@ -37,41 +65,6 @@
         </div>
     </div>
     <script>
-        /*var adjustment;
 
-        $("ol.simple_with_animation").sortable({
-           group: 'simple_with_animation',
-           pullPlaceholder: false,
-           // animation on drop
-           onDrop: function($item, container, _super) {
-               var $clonedItem = $('<li/>').css({height: 0});
-               $item.before($clonedItem);
-               $clonedItem.animate({'height': $item.height()});
-
-               $item.animate($clonedItem.position(), function() {
-                   $clonedItem.detach();
-                   _super($item, container);
-               });
-           },
-
-           // set $item relative to cursor position
-           onDragStart: function($item, container, _super) {
-               var offset = $item.offset(),
-                   pointer = container.rootGroup.pointer;
-
-               adjustment = {
-                   left: pointer.left - offset.left,
-                   top: pointer.top - offset.top
-               };
-
-               _super($item, container);
-           },
-           onDrag: function($item, position) {
-               $item.css({
-                             left: position.left - adjustment.left,
-                             top: position.top - adjustment.top
-                         });
-           }
-       });*/
     </script>
 @endsection
