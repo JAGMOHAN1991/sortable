@@ -8,6 +8,8 @@ import Sortable, { MultiDrag, Swap } from 'sortablejs';
 window.sortable = Sortable;
 // window.sortable = require('sortablejs')
 
+require('./bot-flow/bot-flow-api')
+require('./bot-flow/bot-elements')
 require('./my')
 
 window.notify = (text, type, timeout, layout = 'topCenter', theme = 'sunset') => {
