@@ -1,9 +1,5 @@
-.elements-bar{
-    height: 100px;
-}
-
 .navbar-vertical{
-    padding-top: 120px;
+    padding-top: 100px;
 }
 
 .navbar-expand-md {
@@ -52,6 +48,11 @@
     width: 450px;
     border: solid;
     height: 400px;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
 }
 [class*="span"] {
     float: left;
@@ -67,7 +68,7 @@ ol.vertical li {
     background: #eeeeee;
 }
 
-.grid-square{
+.grid-square {
     width: 70px;
     height: 60px;
     display: inline-block;
@@ -75,4 +76,8 @@ ol.vertical li {
     border: solid 1px rgb(0,0,0,0.2);
     padding: 10px;
     margin: 12px;
+}
+
+.grid-elements-li{
+    //display: inline-block;
 }

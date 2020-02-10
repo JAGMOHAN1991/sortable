@@ -1,0 +1,34 @@
+{
+  "subject": "BBPS",
+  "client_id": 1,
+  "flow": [
+    {
+      "query": "What is BBPS?",
+      "flow": {
+        "flow_type": "TEXT",
+        "text": "As a part of the Digital India initiative, NPCI has make the bill payments digital across the country. Bharat Bill Payment System (BBPS) is an integrated bill payment system in India offering interoperable and accessible bill payment service to customers across geographies with certainty,reliability and safety of transactions through a network of agents,enabling multiple payment modes, and providing instant confirmation of payment."
+      }
+    },
+    {
+      "query": "Become BBPS Agent",
+      "flow": {
+        "flow_type": "TEXT",
+        "text": "Now you can activate the service just by paying Rs 1.18 paisa Or you can also Contact our Customer Care 011-33158888\/43758888 to activate."
+      }
+    },
+    {
+      "query": "Benefits",
+      "flow": {
+        "flow_type": "TEXT",
+        "text": "a) Accessibility, convenience and enhances customer trust. b) \"Anytime anywhere\", interoperable Bill payment Service c) Instant Verifiable confirmation of payment d) Certainty, reliability and safety of transactions e) It is with common standard across country to pay different utility bills. ( Electricity, water & Gas)"
+      }
+    },
+    {
+      "query": "How to do Transaction?",
+      "flow": {
+        "flow_type": "TEXT",
+        "text": "1. Retailer need to Login to PW Web PoS and click the \"Service\" then under \"Bill Payment\" Select \"Electricity\" and Select State to Choose your biller (from the drop down List). 2. Fill the required details (account Id & Customer Mobile Number).Now you will receive Consumer & Biller Details,to Proceed & Confirmation to Pay. 3. After the sucessfull transaction, Payment Receipt will be available in Report that can be printed (End-user will get the confirmation on their registered mobile number for the successful bill payment)"
+      }
+    }
+  ]
+}
