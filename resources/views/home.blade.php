@@ -64,46 +64,7 @@
             </div>
 
             <div class="col-md-4">
-                <div id="grid" class="row float-left">
-                    <div id="gridDemo" class="col grid-elements">
-                        <li data-id="0" data-name="Text" class="handle grid-elements-li">
-                            <div class="grid-square">
-                                <i class="ni ni-align-left-2"></i>
-                                <span>Text</span>
-                            </div>
-                        </li>
-                        <li data-id="1" data-name="Image" class="handle grid-elements-li">
-                            <div class="grid-square">
-                                <i class="ni ni-image"></i>
-                                <span>Image</span>
-                            </div>
-                        </li>
-                        <li data-id="1" data-name="Gallery" class="handle grid-elements-li">
-                            <div class="grid-square">
-                                <i class="ni ni-album-2"></i>
-                                <span>Gallery</span>
-                            </div>
-                        </li>
-                        <li data-id="4" data-name="Button" class="handle grid-elements-li">
-                            <div class="grid-square">
-                                <i class="ni ni-ui-04"></i>
-                                <span class="element-prop">Button</span>
-                            </div>
-                        </li>
-                        <li data-id="4" data-name="Login" class="handle grid-elements-li">
-                            <div class="grid-square">
-                                <i class="ni ni-circle-08"></i>
-                                <span>Login</span>
-                            </div>
-                        </li>
-                        <li data-id="5" data-name="TextArea" class="handle grid-elements-li">
-                            <div class="grid-square">
-                                <i class="ni ni-circle-08"></i>
-                                <span>TextArea</span>
-                            </div>
-                        </li>
-                    </div>
-                </div>
+                @component('components/elements')@endcomponent
             </div>
         </div>
 
@@ -116,5 +77,20 @@
 		function askForEntry(element) {
 			$(element).parent().find('.element-prop').text($(element).val())
 		}
+
+		function startNew() {
+            $('#serialization1').html( $('#start-flow').html());
+
+        }
+
+        function loadFlow(flowId) {
+
+        }
+    </script>
+
+    <script id="start-flow" type="text/template">
+        <li data-id="5" data-name="TextArea" class="handle grid-elements-li">
+            <textarea name='textarea' class='flow-textarea' onkeyup='changeFlowName(this);' />
+        </li>
     </script>
 @endsection

@@ -25910,3 +25910,7 @@ ol.vertical li {
   margin: 12px;
 }
 
+.nested-flow-textarea {
+  height: 50px;
+}
+

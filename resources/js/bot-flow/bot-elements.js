@@ -1,16 +1,13 @@
 import * as flowApi from './bot-flow-api'
 // setFlowSidebar();
 export const setFlowSidebar =  flowData => {
-
-	console.log('data',flowData);
+	// console.log('data',flowData);
 	var sideBar = '<li onclick="startNew()">add new<i class="fa fa-plus"></i></li><li>&nbsp;</li>';
 	$.each( flowData.flow, function( key, value ) {
-		console.log(  'rrrr',value );
-
 		sideBar += '<li>'+value.flow_title+'</li>'+setSidebarList(value);
 	});
 	$('#existing-flow').html(sideBar);
-	console.log('sideBar', sideBar);
+	// console.log('sideBar', sideBar);
 }
 
 
@@ -18,7 +15,7 @@ export const setFlowSidebar =  flowData => {
 function setSidebarList(sideBarlist) {
 	var sideList = '<ul>';
 	$.each( sideBarlist.flow_content, function( key, value ) {
-		sideList += '<li>'+value.name+'</li>';
+		sideList += '<li onclick="loadFlow('+value.flow_id+')">'+value.name+'</li>';
 	});
 	return sideList+'</ul>';
 }

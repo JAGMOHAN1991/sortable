@@ -3,30 +3,36 @@
   "client_id": 1,
   "flow": [
     {
+      "flow_id": "1",
       "flow_title": "BBPS",
       "flow_content": [
           {
-            "name": "What is BBPS?",
-            "content": ""
+              "flow_id": "2",
+              "name": "What is BBPS?",
+              "content": ""
           },
           {
-            "name": "Why is BBPS?",
-            "content": ""
+              "flow_id": "3",
+              "name": "Why is BBPS?",
+              "content": ""
           }
       ]
     },
     {
-      "flow_title": "AEPS",
-      "flow_content": [
+        "flow_id": "4",
+        "flow_title": "AEPS",
+        "flow_content": [
         {
-          "name": "What is AEPS?",
-          "content": ""
+            "flow_id": "5",
+            "name": "What is AEPS?",
+            "content": ""
         },
         {
-          "name": "Why is AEPS?",
-          "content": ""
+            "flow_id": "6",
+            "name": "Why is AEPS?",
+            "content": ""
         }
-      ]
-    }
+        ]
+        }
   ]
 }

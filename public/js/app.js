@@ -43085,20 +43085,18 @@ __webpack_require__.r(__webpack_exports__);
  // setFlowSidebar();
 
 var setFlowSidebar = function setFlowSidebar(flowData) {
-  console.log('data', flowData);
+  // console.log('data',flowData);
   var sideBar = '<li onclick="startNew()">add new<i class="fa fa-plus"></i></li><li>&nbsp;</li>';
   $.each(flowData.flow, function (key, value) {
-    console.log('rrrr', value);
     sideBar += '<li>' + value.flow_title + '</li>' + setSidebarList(value);
   });
-  $('#existing-flow').html(sideBar);
-  console.log('sideBar', sideBar);
+  $('#existing-flow').html(sideBar); // console.log('sideBar', sideBar);
 };
 
 function setSidebarList(sideBarlist) {
   var sideList = '<ul>';
   $.each(sideBarlist.flow_content, function (key, value) {
-    sideList += '<li>' + value.name + '</li>';
+    sideList += '<li onclick="loadFlow(' + value.flow_id + ')">' + value.name + '</li>';
   });
   return sideList + '</ul>';
 }
@@ -43152,9 +43150,8 @@ __webpack_require__.r(__webpack_exports__);
 // callFlow();
 
 var getAllFlow = function getAllFlow(callFlow) {
-  axios.get('/json/flow-list.json').then(function (response) {
+  axios.get('/public/json/flow-list.json').then(function (response) {
     // handle success
-    console.log('response', response.data);
     _bot_elements__WEBPACK_IMPORTED_MODULE_0__["setFlowSidebar"](response.data); // return response.data;
   })["catch"](function (error) {
     // handle error
@@ -43190,17 +43187,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bot_flow_bot_flow_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bot-flow/bot-flow-api */ "./resources/js/bot-flow/bot-flow-api.js");
 
 var order = {};
-_bot_flow_bot_flow_api__WEBPACK_IMPORTED_MODULE_0__["getAllFlow"](); // flowApi.getFlow();
+_bot_flow_bot_flow_api__WEBPACK_IMPORTED_MODULE_0__["getAllFlow"](); // fe : flow elements
+
+var output = [];
+var recursionId = 1; // flowApi.getFlow();
 
 sortable.create(gridDemo, {
+  dragoverBubble: true,
+  fallbackOnBody: true,
   group: {
     name: 'gridDemo',
     pull: 'clone',
     // To clone: set pull to 'clone'
     handle: '.handle'
+  },
+  onEnd: function onEnd(evt) {
+    console.log('eeee', evt.item.dataset.id);
+
+    if (evt.item.dataset.id == 5) {
+      createNested("nested-flow-" + (recursionId - 1));
+    }
   }
 });
 sortable.create(serialization1, {
+  dragoverBubble: true,
+  fallbackOnBody: true,
+  direction: 'vertical',
   group: {
     name: 'serialization1',
     put: ['gridDemo']
@@ -43211,17 +43223,21 @@ sortable.create(serialization1, {
     evt.item.className = '';
     evt.item.children[0].className = '';
     evt.item.innerHTML = changeDropUi(evt.item.dataset.id, evt.item.innerHTML); // console.log(evt.clone.innerHTML);
-
-    console.log(evt);
-    console.log(customSerialize());
+    // console.log(evt);
+    // console.log(customSerialize());
   },
-  setData: function setData(dataTransfer, dragEl) {
-    customSerialize();
-    console.log('serialize'); // dataTransfer.setData('Text', dragEl.textContent);
-  }
-}); // fe : flow elements
 
-var output = [];
+  /*onEnd: function (evt) {
+      console.log('eeee', evt.item.dataset.id);
+      if (evt.item.dataset.id == 5) {
+          createNested("nested-flow-"+(recursionId-1));
+      }
+  },*/
+  setData: function setData(dataTransfer, dragEl) {
+    customSerialize(); // console.log('serialize');
+    // dataTransfer.setData('Text', dragEl.textContent);
+  }
+});
 
 function customSerialize() {
   var fe = $('#serialization1');
@@ -43232,12 +43248,12 @@ function customSerialize() {
       n = children.length;
 
   for (; i < n; i++) {
-    console.log('children', children);
+    // console.log('children',children);
     var dataId = children[i].dataset.id;
     var dataName = children[i].dataset.name;
     var dataValue = children[i].lastChild.value;
-    itemAdd(dataValue, dataName);
-    console.log('dataName', dataName); // console.log('value',children[i].lastChild.value);
+    itemAdd(dataValue, dataName); // console.log('dataName',dataName);
+    // console.log('value',children[i].lastChild.value);
 
     /*switch (dataId) {
     	case '0':
@@ -43264,7 +43280,7 @@ function customSerialize() {
 
 function itemAdd(dataValue, dataName) {
   if (dataValue != undefined) {
-    console.log('pushing:', dataValue);
+    // console.log('pushing:', dataValue);
     var item = {};
     item[dataName] = dataValue; // item ["email"] = email;
 
@@ -43291,11 +43307,40 @@ function changeDropUi(id, html) {
       break;
 
     case '5':
-      html = "<textarea name='textarea' class='flow-textarea' onkeyup='changeFlowName(this);'>";
+      html = "<textarea name='textarea' class='flow-textarea' onkeyup='changeFlowName(this);'></textarea>";
+      html += '<ol class="nested-flow-textarea vertical" id="nested-flow-' + recursionId + '"></ol>'; // createNested("flow-textarea");
+
+      recursionId++;
+
+    case '6':
+      html = "";
       break;
   }
 
   return html;
+}
+
+function createNested(idName) {
+  console.log('id', idName);
+  sortable.create(idName, {
+    group: {
+      name: 'nested',
+      put: ['nestedFlow']
+    },
+    onAdd: function onAdd(
+    /**Event*/
+    evt) {
+      evt.item.className = '';
+      evt.item.children[0].className = '';
+      evt.item.innerHTML = changeDropUi(evt.item.dataset.id, evt.item.innerHTML); // console.log(evt.clone.innerHTML);
+      // console.log(evt);
+      // console.log(customSerialize());
+    },
+    setData: function setData(dataTransfer, dragEl) {
+      customSerialize(); // console.log('serialize');
+      // dataTransfer.setData('Text', dragEl.textContent);
+    }
+  });
 }
 
 /***/ }),
@@ -43318,8 +43363,8 @@ function changeDropUi(id, html) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/sortable/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/sortable/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\sortable\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\sortable\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

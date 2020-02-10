@@ -1,10 +1,9 @@
 // callFlow();
 import * as manageFlow from './bot-elements';
 export const getAllFlow = callFlow => {
-	axios.get('/json/flow-list.json')
+	axios.get('/public/json/flow-list.json')
 		.then(function (response) {
 			// handle success
-			console.log('response',response.data);
 			manageFlow.setFlowSidebar(response.data);
 			// return response.data;
 		})
