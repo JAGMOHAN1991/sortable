@@ -42,5 +42,11 @@
                 <span>If Else</span>
             </div>
         </li>
+        <li data-id="7" data-name="pause" class="handle grid-elements-li">
+            <div class="grid-square">
+                <i class="ni ni-button-pause"></i>
+                <span>Pause</span>
+            </div>
+        </li>
     </div>
 </div>

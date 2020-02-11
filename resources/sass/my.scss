@@ -46,7 +46,7 @@
 
 .span4 {
     width: 450px;
-    border: solid;
+    //border: solid;
     height: 400px;
     display: flex;
     -ms-flex-direction: column;
@@ -84,4 +84,21 @@ ol.vertical li {
 
 .nested-flow-textarea{
     height: 50px;
+}
+
+.bottom-arrow {
+    border-bottom: 5px solid #0b8af7;
+}
+
+.bottom-arrow:after {
+    content:'';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: 25px solid #0b8af7;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
 }

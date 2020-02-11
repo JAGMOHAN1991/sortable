@@ -107,24 +107,24 @@ function itemAdd(dataValue, dataName){
 function changeDropUi(id, html) {
 	switch (id) {
 		case '0':
-			html = "<input name='text' type='text' class='flow-answer' placeholder='enter'>";
+			html = "<input name='text' type='text' class='flow-answer' placeholder='enter'><div class='bottom-arrow'></div>";
 			break;
 		case '1':
-			html += "<input name='text' type='text'>";
+			html += "<input name='text' type='text'><div class='bottom-arrow'></div>";
 			break;
 		case '2':
-			html += "<input name='text' type='text'>";
+			html += "<input name='text' type='text'><div class='bottom-arrow'></div>";
 			break;
 		case '4':
-			html += "<input name='text' type='text' class='flow-button' onkeyup='changeFlowName(this);' onclick='askForEntry(this)'>";
+			html += "<input name='text' type='text' class='flow-button' onkeyup='changeFlowName(this);' onclick='askForEntry(this)'><div class='bottom-arrow'></div>";
 			break;
 		case '5':
 			html = "<textarea name='textarea' class='flow-textarea' onkeyup='changeFlowName(this);'></textarea>";
-            html += '<ol class="nested-flow-textarea vertical" id="nested-flow-'+recursionId+'"></ol>';
+            html += '<ol class="nested-flow-textarea vertical" id="nested-flow-'+recursionId+'"></ol><div class=\'bottom-arrow\'></div>';
 			// createNested("flow-textarea");
             recursionId++;
         case '6':
-            html = "";
+            html = "Yes<input name='text' type='text' class='flow-button' onkeyup='changeFlowName(this);'></br>No<input name='text' type='text' class='flow-button'><div class='bottom-arrow'></div>";
 			break;
 	}
 	return html;
